@@ -156,7 +156,7 @@ def main_worker(gpu, ngpus_per_node, args):
         format(args.dataset, args.arch, args.lr, args.batch_size, args.weight_decay, args.mlp,
                args.moco_t, args.moco_k, args.seed, args.K, args.moco_dim, args.targeted, args.tr, args.tw,
                args.epochs, args.name)
-    args.save_folder = '/data/netmit/SenseFS/targeted/{}/models'.format(args.dataset)
+    args.save_folder = '/nobackup-fast/hongxin/{}/models'.format(args.dataset)
     args.save_folder = '{}/{}'.format(args.save_folder, args.name)
     if not args.multiprocessing_distributed or (args.multiprocessing_distributed
                                                 and args.rank % ngpus_per_node == 0):
@@ -273,7 +273,7 @@ def main_worker(gpu, ngpus_per_node, args):
         normalize
     ]
 
-    data_root = '/data/netmit/rf-diary2/dataset/Imagenet'
+    data_root = '/nobackup-fast/ILSVRC-2012/'
     txt_train = './imagenet_inat/data/ImageNet_LT/ImageNet_LT_train.txt'
     train_dataset = ImageNetLT(
         root=data_root,
