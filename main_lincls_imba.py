@@ -168,7 +168,7 @@ def main():
     if dataset not in ['ImageNet']:
         splits.append('test')
     splits = {'ImageNet_LT': ['test', 'train', 'val']}
-    data_root = {'ImageNet_LT': '/data/netmit/rf-diary2/dataset/Imagenet'}
+    data_root = {'ImageNet_LT': '/nobackup-fast/ILSVRC-2012/'}
     data = {x: dataloader.load_data(data_root=data_root[dataset],
                                     dataset=dataset, phase=x,
                                     batch_size=args.batch_size,

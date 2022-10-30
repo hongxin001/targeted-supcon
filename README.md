@@ -58,11 +58,15 @@ python main_moco_supcon_imba.py --cos --epochs 400 --K 6 --moco-dim 128 --mlp --
   --lr 0.1 --batch-size 256 \
   --dist-url 'tcp://localhost:10000' --multiprocessing-distributed --world-size 1 --rank 0 \
   --dataset imagenet
+  
+python main_moco_supcon_imba.py --cos --epochs 400 --K 6 --moco-dim 128 --mlp --targeted --tr 1 --sep_t --tw 0.2 -a resnet50 --name tsc --lr 0.1 --batch-size 256 --dist-url 'tcp://localhost:10000' --multiprocessing-distributed --world-size 1 --rank 0 --dataset imagenet
 ```
 
 ### 2nd stage fine-tuning:
 ```bash
 python main_lincls_imba.py  --dataset imagenet  --pretrained [PRETRAINED MODEL PATH FROM 1ST STAGE] --epochs 40 --schedule 20 30 --seed 0 -b 2048
+
+python main_lincls_imba.py  --dataset imagenet  --pretrained /nobackup-fast/hongxin/imagenet/models/imagenetLT_resnet50_lr_0.1_bsz_256_wd_0.0001_mlp_True_t_0.07_65536_seed_None_k_6_dim_128_tgted_False_tr_1_tw_1_ep_200_kcl_release --epochs 40 --schedule 20 30 --seed 0 -b 2048
 ```
 
 ## Results
